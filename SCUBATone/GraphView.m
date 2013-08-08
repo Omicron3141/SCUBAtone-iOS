@@ -41,7 +41,6 @@
         newpos = CGPointMake(i, 40*sin(freq1*(i-offset))+40*sin(freq2*(i-offset)) + 80);
         CGContextAddLineToPoint(context, newpos.x, newpos.y);
         
-        // [...] and so on, for all line segments
     }
     CGContextSetLineWidth(context, 2);
     CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);

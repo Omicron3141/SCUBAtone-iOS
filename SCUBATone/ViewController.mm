@@ -10,6 +10,8 @@
 #include <math.h>
 #import <AudioUnit/AudioUnit.h>
 
+
+//create sine wave and buffer frequencies
 OSStatus RenderTone(
                     void *inRefCon,
                     AudioUnitRenderActionFlags 	*ioActionFlags,
@@ -31,13 +33,14 @@ OSStatus RenderTone(
 	double theta_increment1 = 2.0 * M_PI * viewController->freq1 / viewController->sampleRate;
     double theta_increment2 = 2.0 * M_PI * viewController->freq2 / viewController->sampleRate;
     
-	// This is a mono tone generator so we only need the first buffer
+	// This is a mono tone generator so we only need the first buffer, we'll just superimpose the sine waves
 	const int channel = 0;
 	Float32 *buffer = (Float32 *)ioData->mBuffers[channel].mData;
 	
 	// Generate the samples
 	for (UInt32 frame = 0; frame < inNumberFrames; frame++)
 	{
+        //add the current wave to the buffer, then increment theta1 and theta two for the next wave
 		buffer[frame] = sin(theta1) * amplitude + sin(theta2) * amplitude;
 		
 		theta1 += theta_increment1;
@@ -65,7 +68,7 @@ OSStatus RenderTone(
 }
 
 
-
+//if the application is interrupted, stop transmitting
 void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
 {
 	ViewController *viewController =
@@ -83,12 +86,17 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
 
 @implementation ViewController
 
+
+//called once when teh view is loaded
 - (void)viewDidLoad
 {
         [super viewDidLoad];
+    
+        //initialize the default messages
         _messages = @[ @"EMERGENCY!", @"Are you OK?", @"I'm OK/Affirmative.",
                           @"Negative", @"Need help, non emergency.", @"Found something neat!", @"I'm lost!", @"I'm done/ready", @"I need more time.", @"Boat is moving.", @"Let's go this way.", @"I am low on air.", @"Take picture.", @"I need to poop.", @"Get to the Choppa!", @"Sharknado!"];
-        
+    
+        //frequencies are organized by x- and y-axis on the DTMF table
         _frequenciesx = @[ @1209.0f, @1336.0f, @1477.0f,
                        @1633.0f];
     
@@ -130,15 +138,18 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
     [self.view addSubview:freqlabel2];
     
     
+    //initialize the sound wave graph subview
     graph = [[GraphView alloc] initWithFrame:CGRectMake(100, 550, 600, 300)];
     
     [self.view addSubview:graph];
     
-
+    //the primary variable for a little hack to ensure that the 5-second auto-timeout for does not accidentally reactivate a disabled transmission
     buttonPressIsEndOfTimer = NO;
     
+    //set the sample rate for the tonal generator 10100 seems to work well
     sampleRate = 10100;
     
+    //schedule the graph to update every 0.1 seconds
     [NSTimer scheduledTimerWithTimeInterval:0.1 target:graph selector:@selector(setNeedsDisplay) userInfo:nil repeats:YES];
     
     //OSStatus result = AudioSessionInitialize(NULL, NULL, ToneInterruptionListener, self);
@@ -154,16 +165,8 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
 
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    __weak ViewController * wself = self;
-    
 
-}
-
-
+// meathods to provide data to the picker
 #pragma mark -
 #pragma mark PickerView DataSource
 
@@ -189,7 +192,7 @@ numberOfRowsInComponent:(NSInteger)component
     [picker reloadAllComponents];
 }
 
-
+//methods to recieve data from the picker
 #pragma mark -
 #pragma mark PickerView Delegate
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
@@ -215,8 +218,10 @@ numberOfRowsInComponent:(NSInteger)component
     // Dispose of any resources that can be recreated.
 }
 
+//take the set frequencies at begin emmiting the tone
 - (void) transmit{
     if (!transmitting){
+        //if you are not already tansmitting, start transmitting
         [self createToneUnit];
 		
 		// Stop changing parameters on the unit
@@ -245,6 +250,7 @@ numberOfRowsInComponent:(NSInteger)component
         buttonPressIsEndOfTimer = YES;
         
     }else{
+        //if you are transmitting, stop
         AudioOutputUnitStop(toneUnit);
 		AudioUnitUninitialize(toneUnit);
 		AudioComponentInstanceDispose(toneUnit);
@@ -262,13 +268,14 @@ numberOfRowsInComponent:(NSInteger)component
     
 }
 
+//a secondary transmit method to catch timeout calls and prevent accidental reactivation of disabled transmissions
 - (void) transmitendoftimer{
     if (transmitting && buttonPressIsEndOfTimer) {
         [self transmit];
     }
 }
 
-
+//stuff I stole from the internet
 - (void)createToneUnit
 {
 	// Configure the search parameters to find the default playback output unit
