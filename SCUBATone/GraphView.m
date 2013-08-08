@@ -42,6 +42,7 @@
         CGContextAddLineToPoint(context, newpos.x, newpos.y);
         
     }
+    CGContextAddLineToPoint(context, 0, 80);
     CGContextSetLineWidth(context, 2);
     CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
     CGContextStrokePath(context);

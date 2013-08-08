@@ -139,15 +139,15 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
     
     
     //initialize the sound wave graph subview
-    graph = [[GraphView alloc] initWithFrame:CGRectMake(100, 400, 600, 300)];
+    graph = [[GraphView alloc] initWithFrame:CGRectMake(100, 410, 600, 300)];
     
     [self.view addSubview:graph];
     
     //the primary variable for a little hack to ensure that the 5-second auto-timeout for does not accidentally reactivate a disabled transmission
     buttonPressIsEndOfTimer = NO;
     
-    //set the sample rate for the tonal generator 10100 seems to work well
-    sampleRate = 10100;
+    //set the sample rate for the tonal generator 20100 seems to work well
+    sampleRate = 20100;
     
     //schedule the graph to update every 0.1 seconds
     [NSTimer scheduledTimerWithTimeInterval:0.1 target:graph selector:@selector(setNeedsDisplay) userInfo:nil repeats:YES];
