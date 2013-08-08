@@ -29,10 +29,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="3cr-F4-MS9" firstAttribute="centerX" secondItem="5" secondAttribute="centerX" type="default" id="55C-Mm-uxf"/>
+                            <constraint firstItem="bX3-D5-9UN" firstAttribute="top" secondItem="3cr-F4-MS9" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="9Wi-kj-Ygb"/>
+                            <constraint firstItem="3cr-F4-MS9" firstAttribute="top" secondItem="5" secondAttribute="top" constant="31" id="K01-1W-79d"/>
                             <constraint firstItem="bX3-D5-9UN" firstAttribute="centerX" secondItem="3cr-F4-MS9" secondAttribute="centerX" type="default" id="RJw-ck-VZL"/>
-                            <constraint firstItem="3cr-F4-MS9" firstAttribute="top" secondItem="5" secondAttribute="top" constant="47" id="TAM-gP-DCA"/>
-                            <constraint firstItem="3cr-F4-MS9" firstAttribute="centerX" secondItem="5" secondAttribute="centerX" type="default" id="jVJ-EV-IM9"/>
-                            <constraint firstItem="bX3-D5-9UN" firstAttribute="top" secondItem="5" secondAttribute="top" constant="172" id="lvf-sw-vnY"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -40,14 +40,6 @@
             </objects>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

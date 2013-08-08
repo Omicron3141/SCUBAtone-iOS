@@ -107,7 +107,7 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
     freq1 = [_frequenciesx[0] floatValue];
     freq2 = [_frequenciesy[0] floatValue];
     
-    picker = [[UIPickerView alloc] initWithFrame:CGRectMake(100, 200, 560, 200)];
+    picker = [[UIPickerView alloc] initWithFrame:CGRectMake(100, 120, 560, 200)];
     picker.delegate = self;
     picker.showsSelectionIndicator = YES;
     [self.view addSubview:picker];
@@ -120,26 +120,26 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
      forControlEvents:UIControlEventTouchUpInside];
     [transmitButton setTitle:@"Transmit" forState:UIControlStateNormal];
     transmitButton.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
-    [transmitButton setCenter:CGPointMake(360, 450)];
+    [transmitButton setCenter:CGPointMake(360, 340)];
     [self.view addSubview:transmitButton];
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"reef.jpg"]]];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 485, 600, 30)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 385, 600, 30)];
     [self.view addSubview:label];
     
     freqlabel1 = [[UILabel alloc] initWithFrame:CGRectMake(40, 70, 200, 30)];
-    [freqlabel1 setCenter:CGPointMake(300, 500)];
+    [freqlabel1 setCenter:CGPointMake(300, 400)];
     freqlabel1.text = @"Frequency 1:      0HZ";
     [self.view addSubview:freqlabel1];
     
     freqlabel2 = [[UILabel alloc] initWithFrame:CGRectMake(40, 70, 455, 30)];
-    [freqlabel2 setCenter:CGPointMake(605, 500)];
+    [freqlabel2 setCenter:CGPointMake(605, 400)];
     freqlabel2.text = @"Frequency 2:       0HZ";
     [self.view addSubview:freqlabel2];
     
     
     //initialize the sound wave graph subview
-    graph = [[GraphView alloc] initWithFrame:CGRectMake(100, 550, 600, 300)];
+    graph = [[GraphView alloc] initWithFrame:CGRectMake(100, 400, 600, 300)];
     
     [self.view addSubview:graph];
     

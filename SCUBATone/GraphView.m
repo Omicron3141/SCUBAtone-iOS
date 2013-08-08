@@ -36,16 +36,16 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     //CGContextMoveToPoint(context, 0, 100);
     CGContextBeginPath(context);
-    for (int i = 550; i > 0; i-=3) {
+    for (int i = 550; i > 0; i-=2) {
         CGContextMoveToPoint(context, newpos.x, newpos.y);
-        newpos = CGPointMake(i, 40*sin(freq1*(i-offset))+40*sin(freq2*(i-offset)) + 80);
+        newpos = CGPointMake(i, 30*sin(freq1*(i-offset))+30*sin(freq2*(i-offset)) + 80);
         CGContextAddLineToPoint(context, newpos.x, newpos.y);
         
     }
     CGContextSetLineWidth(context, 2);
     CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
     CGContextStrokePath(context);
-    offset -= 40;
+    offset -= 20;
 }
  
 
