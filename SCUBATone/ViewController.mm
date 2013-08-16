@@ -87,15 +87,17 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
 @implementation ViewController
 
 
-//called once when teh view is loaded
+//called once when the view is loaded
 - (void)viewDidLoad
 {
         [super viewDidLoad];
     
         //initialize the default messages
-        _messages = @[ @"EMERGENCY!", @"Are you OK?", @"I'm OK/Affirmative.",
-                          @"Negative", @"Need help, non emergency.", @"Found something neat!", @"I'm lost!", @"I'm done/ready", @"I need more time.", @"Boat is moving.", @"Let's go this way.", @"I am low on air.", @"Take picture.", @"I need to poop.", @"Get to the Choppa!", @"Sharknado!"];
-    
+        if ([_messages objectAtIndex:0] == nil) {
+            _messages = @[ @"EMERGENCY!", @"Are you OK?", @"I'm OK/Affirmative.",
+                           @"Negative", @"Need help, non emergency.", @"Found something neat!", @"I'm lost!", @"I'm done/ready", @"I need more time.", @"Boat is moving.", @"Let's go this way.", @"I am low on air.", @"Take picture.", @"I need to poop.", @"Get to the Choppa!", @"Sharknado!"];
+
+        }
         //frequencies are organized by x- and y-axis on the DTMF table
         _frequenciesx = @[ @1209.0f, @1336.0f, @1477.0f,
                        @1633.0f];
@@ -122,6 +124,15 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
     transmitButton.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
     [transmitButton setCenter:CGPointMake(360, 340)];
     [self.view addSubview:transmitButton];
+    
+    changeMessageButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [changeMessageButton addTarget:self
+                       action:@selector(changeMessages)
+             forControlEvents:UIControlEventTouchUpInside];
+    [changeMessageButton setTitle:@"Change Messages" forState:UIControlStateNormal];
+    changeMessageButton.frame = CGRectMake(590.0, 20.0, 160.0, 40.0);
+    [self.view addSubview:changeMessageButton];
+    
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"reef.jpg"]]];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 385, 600, 30)];
@@ -342,6 +353,19 @@ numberOfRowsInComponent:(NSInteger)component
 - (void)viewDidUnload {
     
 }
+
+-(void) changeMessages{
+    messageView = [ChangeMessageView alloc];
+    [messageView setsubMessages:_messages];
+    messageView = [messageView initWithFrame: CGRectMake(0.0, 0.0, 840.0, 960.0)];
+    [self.view addSubview:messageView];
+}
+
+-(void) getNewMessages{
+    _messages = [messageView getMessages];
+    [picker reloadAllComponents];
+}
+
 
 
 

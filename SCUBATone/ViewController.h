@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AudioUnit/AudioUnit.h>
 #import "GraphView.h"
-
+#import "ChangeMessageView.h"
 
 
 @interface ViewController : UIViewController
@@ -19,6 +19,11 @@
     UIPickerView *picker;
     UIButton *transmitButton;
     UILabel *titlelabel;
+    
+    UIButton *changeMessageButton;
+    
+    ChangeMessageView *messageView;
+    
     AudioComponentInstance toneUnit;
     BOOL transmitting;
     BOOL buttonPressIsEndOfTimer;
@@ -26,6 +31,9 @@
     UILabel *freqlabel2;
     GraphView *graph;
     NSTimer *transmitTimer;
+    
+    
+    
 
 
 
@@ -38,10 +46,15 @@
     double theta2;
 
 }
+
+
 -(void) stop;
+-(void) getNewMessages;
 @property (strong, nonatomic) NSArray *messages;
 @property (strong, nonatomic) NSArray *frequenciesy;
 @property (strong, nonatomic) NSArray *frequenciesx;
 
+
 @end
+
 

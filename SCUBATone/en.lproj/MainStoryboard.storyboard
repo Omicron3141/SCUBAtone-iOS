@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -29,17 +29,27 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="3cr-F4-MS9" firstAttribute="centerX" secondItem="5" secondAttribute="centerX" type="default" id="55C-Mm-uxf"/>
+                            <constraint firstItem="bX3-D5-9UN" firstAttribute="centerX" secondItem="5" secondAttribute="centerX" type="default" id="697-FJ-iIm"/>
                             <constraint firstItem="bX3-D5-9UN" firstAttribute="top" secondItem="3cr-F4-MS9" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="9Wi-kj-Ygb"/>
                             <constraint firstItem="3cr-F4-MS9" firstAttribute="top" secondItem="5" secondAttribute="top" constant="31" id="K01-1W-79d"/>
                             <constraint firstItem="bX3-D5-9UN" firstAttribute="centerX" secondItem="3cr-F4-MS9" secondAttribute="centerX" type="default" id="RJw-ck-VZL"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="N0t-r9-ciF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-145" y="-230"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
