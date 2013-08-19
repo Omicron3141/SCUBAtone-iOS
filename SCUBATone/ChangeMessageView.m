@@ -15,13 +15,26 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        backbutton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [backbutton addTarget:self
-                                action:@selector(back)
+        savebutton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [savebutton addTarget:self
+                                action:@selector(save)
                       forControlEvents:UIControlEventTouchUpInside];
-        [backbutton setTitle:@"Back" forState:UIControlStateNormal];
-        backbutton.frame = CGRectMake(20.0, 20.0, 160.0, 40.0);
-        [self addSubview:backbutton];
+        [savebutton setTitle:@"Done" forState:UIControlStateNormal];
+        savebutton.frame = CGRectMake(170.0, 510.0, 160.0, 40.0);
+        [self addSubview:savebutton];
+        
+        cancelbutton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [cancelbutton addTarget:self
+                       action:@selector(back)
+             forControlEvents:UIControlEventTouchUpInside];
+        [cancelbutton setTitle:@"Cancel" forState:UIControlStateNormal];
+        cancelbutton.frame = CGRectMake(400.0, 510.0, 160.0, 40.0);
+        [self addSubview:cancelbutton];
+        
+        UILabel *titlelabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 10, 340, 70)];
+        titlelabel.text=@"Change Messages";
+        [titlelabel setFont:[UIFont fontWithName:@"Arial" size:40]];
+        [self addSubview:titlelabel];
         
         [self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"reef.jpg"]]];
         
@@ -50,8 +63,7 @@
     messages = supermessages;
 }
 
-
--(void) back{
+-(void) save{
     NSMutableArray *mutarray = [[NSMutableArray alloc] init];
     for (int i = 0; i < messages.count; i++) {
         UITextField *tf = [self viewWithTag:i+1];
@@ -60,6 +72,13 @@
     }
     messages = [NSArray arrayWithArray:mutarray];
     [(ViewController*)[self viewController] getNewMessages];
+    [[NSUserDefaults standardUserDefaults] setObject:messages forKey:@"messages"];
+    [self back];
+}
+
+
+-(void) back{
+
     [self removeFromSuperview];
 }
 

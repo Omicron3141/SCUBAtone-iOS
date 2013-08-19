@@ -101,7 +101,10 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
         [super viewDidLoad];
     
         //initialize the default messages
-        if ([_messages objectAtIndex:0] == nil) {
+        NSArray *messages = [[NSUserDefaults standardUserDefaults] objectForKey:@"messages"];
+        if (messages != NULL) {
+            _messages = messages;
+        }else if ([_messages objectAtIndex:0] == nil) {
             _messages = @[ @"EMERGENCY!", @"Are you OK?", @"I'm OK/Affirmative.",
                            @"Negative", @"Need help, non emergency.", @"Found something neat!", @"I'm lost!", @"I'm done/ready", @"I need more time.", @"Boat is moving.", @"Let's go this way.", @"I am low on air.", @"Take picture.", @"I need to poop.", @"Get to the Choppa!", @"Sharknado!"];
 
@@ -388,27 +391,30 @@ numberOfRowsInComponent:(NSInteger)component
 
 
 -(void) getIncomingTransmissionsFromData{
-    float freqx = [audioProcessor getfreq1];
-    float freqy = [audioProcessor getfreq2];
-    int freqxid = -1;
-    int freqyid = -1;
-    for (int i = 0; i<_frequenciesx.count; i++) {
-        if (freqx == [_frequenciesx[i] floatValue]){
-            freqxid = i;
+    if (!transmitting) {
+        float freqx = [audioProcessor getfreq1];
+        float freqy = [audioProcessor getfreq2];
+        int freqxid = -1;
+        int freqyid = -1;
+        for (int i = 0; i<_frequenciesx.count; i++) {
+            if (freqx == [_frequenciesx[i] floatValue]){
+                freqxid = i;
+            }
         }
-    }
-    for (int i = 0; i<_frequenciesy.count; i++) {
-        if (freqy == [_frequenciesy[i] floatValue]){
-            freqyid = i;
+        for (int i = 0; i<_frequenciesy.count; i++) {
+            if (freqy == [_frequenciesy[i] floatValue]){
+                freqyid = i;
+            }
         }
+        if(freqyid<0 || freqxid<0){
+            messageLabel.text = @"";
+            return;
+        }
+        NSString *message = _messages[(int)((freqyid*4)+(freqxid))];
+        NSLog(message);
+        messageLabel.text = message;
+
     }
-    if(freqyid<0 || freqxid<0){
-        messageLabel.text = @"";
-        return;
-    }
-    NSString *message = _messages[(int)((freqyid*4)+(freqxid))];
-    NSLog(message);
-    messageLabel.text = message;
 }
 
 
