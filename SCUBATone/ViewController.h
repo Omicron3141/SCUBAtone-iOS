@@ -10,6 +10,14 @@
 #import <AudioUnit/AudioUnit.h>
 #import "GraphView.h"
 #import "ChangeMessageView.h"
+#import "AudioProcessor.h"
+#import <AudioToolbox/AudioToolbox.h>
+
+#define kOutputBus 0
+#define kInputBus 1
+
+// our default sample rate
+#define SAMPLE_RATE 44100.00
 
 
 @interface ViewController : UIViewController
@@ -32,6 +40,16 @@
     GraphView *graph;
     NSTimer *transmitTimer;
     
+    UILabel *messageLabel;
+    
+    // Audio Unit
+    AudioComponentInstance audioUnit;
+    
+    // Audio buffers
+	AudioBuffer audioBuffer;
+    
+
+    
     
     
 
@@ -50,6 +68,17 @@
 
 -(void) stop;
 -(void) getNewMessages;
+int initAudioSession();
+-(void)initializeAudio;
+-(void)processBuffer: (AudioBufferList*) audioBufferList;
+
+
+// error managment
+-(void)hasError:(int)statusCode:(char*)file:(int)line;
+
+@property (retain, nonatomic) AudioProcessor *audioProcessor;
+@property (readonly) AudioBuffer audioBuffer;
+@property (readonly) AudioComponentInstance audioUnit;
 @property (strong, nonatomic) NSArray *messages;
 @property (strong, nonatomic) NSArray *frequenciesy;
 @property (strong, nonatomic) NSArray *frequenciesx;

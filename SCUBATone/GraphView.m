@@ -24,6 +24,7 @@
 -(void) setFrequencies: (float) frequency1: (float) frequency2{
     freq1 = frequency1;
     freq2 = frequency2;
+    offset = 0;
 }
 
 

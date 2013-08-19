@@ -68,6 +68,12 @@ OSStatus RenderTone(
 }
 
 
+
+
+
+
+
+
 //if the application is interrupted, stop transmitting
 void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
 {
@@ -85,6 +91,8 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
 
 
 @implementation ViewController
+@synthesize audioProcessor;
+//variables for receiver
 
 
 //called once when the view is loaded
@@ -149,6 +157,13 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
     [self.view addSubview:freqlabel2];
     
     
+    messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 600, 560, 100)];
+    [messageLabel setNumberOfLines:1];
+    [messageLabel setFont:[UIFont fontWithName:@"Arial" size:100]];
+    [messageLabel setAdjustsFontSizeToFitWidth: YES];
+    [self.view addSubview:messageLabel];
+    
+    
     //initialize the sound wave graph subview
     graph = [[GraphView alloc] initWithFrame:CGRectMake(100, 410, 600, 300)];
     
@@ -170,8 +185,13 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
 	//	AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
 	//}
     
-    NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:self
-                                           selector:@selector(getMessage) userInfo:nil repeats:YES];
+    audioProcessor = [[AudioProcessor alloc] init];
+    [audioProcessor start];
+    [audioProcessor setFrequencies:_frequenciesx :_frequenciesy];
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(getIncomingTransmissionsFromData) userInfo:nil repeats:YES];
+    
+    
     
 
 }
@@ -364,6 +384,31 @@ numberOfRowsInComponent:(NSInteger)component
 -(void) getNewMessages{
     _messages = [messageView getMessages];
     [picker reloadAllComponents];
+}
+
+
+-(void) getIncomingTransmissionsFromData{
+    float freqx = [audioProcessor getfreq1];
+    float freqy = [audioProcessor getfreq2];
+    int freqxid = -1;
+    int freqyid = -1;
+    for (int i = 0; i<_frequenciesx.count; i++) {
+        if (freqx == [_frequenciesx[i] floatValue]){
+            freqxid = i;
+        }
+    }
+    for (int i = 0; i<_frequenciesy.count; i++) {
+        if (freqy == [_frequenciesy[i] floatValue]){
+            freqyid = i;
+        }
+    }
+    if(freqyid<0 || freqxid<0){
+        messageLabel.text = @"";
+        return;
+    }
+    NSString *message = _messages[(int)((freqyid*4)+(freqxid))];
+    NSLog(message);
+    messageLabel.text = message;
 }
 
 

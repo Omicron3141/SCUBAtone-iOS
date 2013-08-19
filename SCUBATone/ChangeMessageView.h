@@ -11,7 +11,9 @@
 
 @interface ChangeMessageView : UIView
 {
-    UIButton *backbutton;
+    UIButton *savebutton;
+    UIButton *cancelbutton;
+
     
     @public
     NSArray *messages;

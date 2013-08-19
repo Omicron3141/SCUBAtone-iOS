@@ -17,7 +17,6 @@
 		8151F19E17ADC48F0027520F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8151F19D17ADC48F0027520F /* Default@2x.png */; };
 		8151F1A017ADC48F0027520F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8151F19F17ADC48F0027520F /* Default-568h@2x.png */; };
 		8151F1A317ADC48F0027520F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8151F1A117ADC48F0027520F /* MainStoryboard.storyboard */; };
-		8151F1A617ADC48F0027520F /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8151F1A517ADC48F0027520F /* ViewController.mm */; };
 		8151F1AE17ADC48F0027520F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F1AD17ADC48F0027520F /* SenTestingKit.framework */; };
 		8151F1AF17ADC48F0027520F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F18917ADC48F0027520F /* UIKit.framework */; };
 		8151F1B017ADC48F0027520F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F18B17ADC48F0027520F /* Foundation.framework */; };
@@ -29,7 +28,12 @@
 		8151F1E117ADFE830027520F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F1E017ADFE830027520F /* OpenGLES.framework */; };
 		8151F21017AEB61F0027520F /* reef.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8151F20F17AEB61F0027520F /* reef.jpg */; };
 		8151F21D17AED4EC0027520F /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F21C17AED4EC0027520F /* GraphView.m */; };
+		8195AD1117C14E540088B644 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8195AD0F17C14E540088B644 /* ViewController.mm */; };
+		8195AD1417C169730088B644 /* AudioProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195AD1317C169730088B644 /* AudioProcessor.m */; };
+		8195AD1517C16A2F0088B644 /* AudioProcessor.h in Sources */ = {isa = PBXBuildFile; fileRef = 8195AD1217C169730088B644 /* AudioProcessor.h */; };
+		8195AD1617C16A2F0088B644 /* AudioProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195AD1317C169730088B644 /* AudioProcessor.m */; };
 		81B8F0CD17BE88C5003BA8F7 /* ChangeMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8F0CC17BE88C5003BA8F7 /* ChangeMessageView.m */; };
+		81B8F0ED17BEA5DE003BA8F7 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B8F0EC17BEA5DE003BA8F7 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +61,6 @@
 		8151F19D17ADC48F0027520F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8151F19F17ADC48F0027520F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8151F1A217ADC48F0027520F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		8151F1A417ADC48F0027520F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8151F1A517ADC48F0027520F /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		8151F1AC17ADC48F0027520F /* SCUBAToneTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SCUBAToneTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8151F1AD17ADC48F0027520F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		8151F1B517ADC48F0027520F /* SCUBAToneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SCUBAToneTests-Info.plist"; sourceTree = "<group>"; };
@@ -72,8 +74,13 @@
 		8151F20F17AEB61F0027520F /* reef.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = reef.jpg; path = ../../../Documents/reef.jpg; sourceTree = "<group>"; };
 		8151F21B17AED4EC0027520F /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		8151F21C17AED4EC0027520F /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		8195AD0F17C14E540088B644 /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		8195AD1017C14E540088B644 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8195AD1217C169730088B644 /* AudioProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioProcessor.h; sourceTree = "<group>"; };
+		8195AD1317C169730088B644 /* AudioProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioProcessor.m; sourceTree = "<group>"; };
 		81B8F0CB17BE88C5003BA8F7 /* ChangeMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeMessageView.h; sourceTree = "<group>"; };
 		81B8F0CC17BE88C5003BA8F7 /* ChangeMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeMessageView.m; sourceTree = "<group>"; };
+		81B8F0EC17BEA5DE003BA8F7 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +88,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81B8F0ED17BEA5DE003BA8F7 /* CoreFoundation.framework in Frameworks */,
+				8151F18C17ADC48F0027520F /* Foundation.framework in Frameworks */,
 				8151F1E117ADFE830027520F /* OpenGLES.framework in Frameworks */,
 				8151F1DF17ADFE720027520F /* QuartzCore.framework in Frameworks */,
 				8151F1DD17ADFE6E0027520F /* Accelerate.framework in Frameworks */,
 				8151F1C817ADE10F0027520F /* AudioToolbox.framework in Frameworks */,
 				8151F18A17ADC48F0027520F /* UIKit.framework in Frameworks */,
-				8151F18C17ADC48F0027520F /* Foundation.framework in Frameworks */,
 				8151F18E17ADC48F0027520F /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +115,7 @@
 		8151F17D17ADC48F0027520F = {
 			isa = PBXGroup;
 			children = (
+				81B8F0EC17BEA5DE003BA8F7 /* CoreFoundation.framework */,
 				8151F18F17ADC48F0027520F /* SCUBATone */,
 				8151F1B317ADC48F0027520F /* SCUBAToneTests */,
 				8151F18817ADC48F0027520F /* Frameworks */,
@@ -141,11 +150,13 @@
 		8151F18F17ADC48F0027520F /* SCUBATone */ = {
 			isa = PBXGroup;
 			children = (
+				8195AD1217C169730088B644 /* AudioProcessor.h */,
+				8195AD1317C169730088B644 /* AudioProcessor.m */,
+				8195AD0F17C14E540088B644 /* ViewController.mm */,
+				8195AD1017C14E540088B644 /* ViewController.h */,
 				8151F19917ADC48F0027520F /* AppDelegate.m */,
 				8151F1A117ADC48F0027520F /* MainStoryboard.storyboard */,
 				8151F19817ADC48F0027520F /* AppDelegate.h */,
-				8151F1A417ADC48F0027520F /* ViewController.h */,
-				8151F1A517ADC48F0027520F /* ViewController.mm */,
 				81B8F0CB17BE88C5003BA8F7 /* ChangeMessageView.h */,
 				81B8F0CC17BE88C5003BA8F7 /* ChangeMessageView.m */,
 				8151F21B17AED4EC0027520F /* GraphView.h */,
@@ -300,11 +311,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8195AD1517C16A2F0088B644 /* AudioProcessor.h in Sources */,
+				8195AD1617C16A2F0088B644 /* AudioProcessor.m in Sources */,
 				8151F19617ADC48F0027520F /* main.m in Sources */,
 				8151F19A17ADC48F0027520F /* AppDelegate.m in Sources */,
-				8151F1A617ADC48F0027520F /* ViewController.mm in Sources */,
 				8151F21D17AED4EC0027520F /* GraphView.m in Sources */,
 				81B8F0CD17BE88C5003BA8F7 /* ChangeMessageView.m in Sources */,
+				8195AD1117C14E540088B644 /* ViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8151F1BB17ADC48F0027520F /* SCUBAToneTests.m in Sources */,
+				8195AD1417C169730088B644 /* AudioProcessor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +431,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SCUBATone/SCUBATone-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = "SCUBATone/SCUBATone-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
