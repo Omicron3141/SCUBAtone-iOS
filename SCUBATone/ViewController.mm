@@ -105,8 +105,12 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
         if (messages != NULL) {
             _messages = messages;
         }else if ([_messages objectAtIndex:0] == nil) {
-            _messages = @[ @"EMERGENCY!", @"Are you OK?", @"I'm OK/Affirmative.",
+            /*_messages = @[ @"EMERGENCY!", @"Are you OK?", @"I'm OK/Affirmative.",
                            @"Negative", @"Need help, non emergency.", @"Found something neat!", @"I'm lost!", @"I'm done/ready", @"I need more time.", @"Boat is moving.", @"Let's go this way.", @"I am low on air.", @"Take a picture.", @"I need to poop.", @"Get to the Choppa!", @"Sharknado!"];
+             */
+            
+            _messages = @[ @"1", @"2", @"3",
+                           @"A", @"4", @"5", @"6", @"B", @"7", @"8", @"9", @"C", @"*", @"0", @"#", @"D"];
 
         }
         //frequencies are organized by x- and y-axis on the DTMF table
