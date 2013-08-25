@@ -32,6 +32,7 @@
 		8195AD1417C169730088B644 /* AudioProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195AD1317C169730088B644 /* AudioProcessor.m */; };
 		8195AD1517C16A2F0088B644 /* AudioProcessor.h in Sources */ = {isa = PBXBuildFile; fileRef = 8195AD1217C169730088B644 /* AudioProcessor.h */; };
 		8195AD1617C16A2F0088B644 /* AudioProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195AD1317C169730088B644 /* AudioProcessor.m */; };
+		8195AD6E17C2CA880088B644 /* TransmissionGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195AD6D17C2CA880088B644 /* TransmissionGraphView.m */; };
 		81B8F0CD17BE88C5003BA8F7 /* ChangeMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8F0CC17BE88C5003BA8F7 /* ChangeMessageView.m */; };
 		81B8F0ED17BEA5DE003BA8F7 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B8F0EC17BEA5DE003BA8F7 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,8 @@
 		8195AD1017C14E540088B644 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		8195AD1217C169730088B644 /* AudioProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioProcessor.h; sourceTree = "<group>"; };
 		8195AD1317C169730088B644 /* AudioProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioProcessor.m; sourceTree = "<group>"; };
+		8195AD6C17C2CA880088B644 /* TransmissionGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransmissionGraphView.h; sourceTree = "<group>"; };
+		8195AD6D17C2CA880088B644 /* TransmissionGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransmissionGraphView.m; sourceTree = "<group>"; };
 		81B8F0CB17BE88C5003BA8F7 /* ChangeMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeMessageView.h; sourceTree = "<group>"; };
 		81B8F0CC17BE88C5003BA8F7 /* ChangeMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeMessageView.m; sourceTree = "<group>"; };
 		81B8F0EC17BEA5DE003BA8F7 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -161,6 +164,8 @@
 				81B8F0CC17BE88C5003BA8F7 /* ChangeMessageView.m */,
 				8151F21B17AED4EC0027520F /* GraphView.h */,
 				8151F21C17AED4EC0027520F /* GraphView.m */,
+				8195AD6C17C2CA880088B644 /* TransmissionGraphView.h */,
+				8195AD6D17C2CA880088B644 /* TransmissionGraphView.m */,
 				8151F19017ADC48F0027520F /* Supporting Files */,
 			);
 			path = SCUBATone;
@@ -318,6 +323,7 @@
 				8151F21D17AED4EC0027520F /* GraphView.m in Sources */,
 				81B8F0CD17BE88C5003BA8F7 /* ChangeMessageView.m in Sources */,
 				8195AD1117C14E540088B644 /* ViewController.mm in Sources */,
+				8195AD6E17C2CA880088B644 /* TransmissionGraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

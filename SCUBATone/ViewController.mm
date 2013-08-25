@@ -106,7 +106,7 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
             _messages = messages;
         }else if ([_messages objectAtIndex:0] == nil) {
             _messages = @[ @"EMERGENCY!", @"Are you OK?", @"I'm OK/Affirmative.",
-                           @"Negative", @"Need help, non emergency.", @"Found something neat!", @"I'm lost!", @"I'm done/ready", @"I need more time.", @"Boat is moving.", @"Let's go this way.", @"I am low on air.", @"Take picture.", @"I need to poop.", @"Get to the Choppa!", @"Sharknado!"];
+                           @"Negative", @"Need help, non emergency.", @"Found something neat!", @"I'm lost!", @"I'm done/ready", @"I need more time.", @"Boat is moving.", @"Let's go this way.", @"I am low on air.", @"Take a picture.", @"I need to poop.", @"Get to the Choppa!", @"Sharknado!"];
 
         }
         //frequencies are organized by x- and y-axis on the DTMF table
@@ -160,7 +160,7 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
     [self.view addSubview:freqlabel2];
     
     
-    messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 600, 560, 100)];
+    messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 600, 560, 150)];
     [messageLabel setNumberOfLines:1];
     [messageLabel setFont:[UIFont fontWithName:@"Arial" size:100]];
     [messageLabel setAdjustsFontSizeToFitWidth: YES];
@@ -169,8 +169,12 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
     
     //initialize the sound wave graph subview
     graph = [[GraphView alloc] initWithFrame:CGRectMake(100, 410, 600, 300)];
+    tgraph = [[TransmissionGraphView alloc] initWithFrame:CGRectMake(100, 710, 600, 300)];
+
     
     [self.view addSubview:graph];
+    //[self.view addSubview:tgraph];
+
     
     //the primary variable for a little hack to ensure that the 5-second auto-timeout for does not accidentally reactivate a disabled transmission
     buttonPressIsEndOfTimer = NO;
@@ -180,6 +184,7 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
     
     //schedule the graph to update every 0.1 seconds
     [NSTimer scheduledTimerWithTimeInterval:0.1 target:graph selector:@selector(setNeedsDisplay) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.1 target:tgraph selector:@selector(setNeedsDisplay) userInfo:nil repeats:YES];
     
     //OSStatus result = AudioSessionInitialize(NULL, NULL, ToneInterruptionListener, self);
 	//if (result == kAudioSessionNoError)
@@ -408,11 +413,12 @@ numberOfRowsInComponent:(NSInteger)component
         }
         if(freqyid<0 || freqxid<0){
             messageLabel.text = @"";
+            [tgraph setData:[audioProcessor getData]];
             return;
         }
         NSString *message = _messages[(int)((freqyid*4)+(freqxid))];
-        NSLog(message);
         messageLabel.text = message;
+        [tgraph setData:[audioProcessor getData]];
 
     }
 }

@@ -237,6 +237,11 @@ static OSStatus playbackCallback(void *inRefCon,
     // start the audio unit. You should hear something, hopefully :)
     OSStatus status = AudioOutputUnitStart(audioUnit);
     [self hasError:status:__FILE__:__LINE__];
+    delay = 30;
+    countx = 0;
+    county = 0;
+    lastx = 0.0f;
+    lasty = 0.0f;
 }
 -(void)stop;
 {
@@ -293,13 +298,13 @@ static OSStatus playbackCallback(void *inRefCon,
     }
     
     
-    
+    float minimummagnitude = 0.003f;
     float highestx = 0;
     float highestxmagnitude = 0;
     for (int x = 0; x<frequency_x.count; x++) {
         float targetfreq = [frequency_x[x] floatValue];
         float magnitude = goertzel_mag(numFrames, targetfreq, SAMPLE_RATE, convertedSampleBuffer);
-        if(magnitude > highestxmagnitude && magnitude > 0.03f){
+        if(magnitude > highestxmagnitude && magnitude > minimummagnitude){
             highestx = targetfreq;
             highestxmagnitude = magnitude;
         }
@@ -311,15 +316,39 @@ static OSStatus playbackCallback(void *inRefCon,
     for (int y = 0; y<frequency_y.count; y++) {
         float targetfreq = [frequency_y[y] floatValue];
         float magnitude = goertzel_mag(numFrames, targetfreq, SAMPLE_RATE, convertedSampleBuffer);
-        if(magnitude > highestymagnitude && magnitude > 0.03f){
+        if(magnitude > highestymagnitude && magnitude > minimummagnitude){
             highesty = targetfreq;
             highestymagnitude = magnitude;
         }
         
     }
 
-    freq1 = highestx;
-    freq2 = highesty;
+    //delay check for x
+    
+    if (countx > delay) {
+        freq1 = highestx;
+        countx = 0;
+    }else if(highestx == lastx){
+        countx++;
+    }else{
+        countx = 0;
+        lastx = highestx;
+    }
+    
+    
+    //delay check for y
+    
+    if (county > delay) {
+        freq2 = highesty;
+        county = 0;
+    }else if(highesty == lasty){
+        county++;
+    }else{
+        county = 0;
+        lasty = highesty;
+    }
+
+    data = convertedSampleBuffer;
     
     
     
@@ -378,6 +407,10 @@ float goertzel_mag(int numSamples,int TARGET_FREQUENCY,int SAMPLING_RATE, float*
     
     magnitude = sqrtf(real*real + imag*imag);
     return magnitude;
+}
+
+-(float*) getData{
+    return data;
 }
 
 

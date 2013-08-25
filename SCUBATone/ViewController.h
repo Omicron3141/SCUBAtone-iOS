@@ -12,6 +12,8 @@
 #import "ChangeMessageView.h"
 #import "AudioProcessor.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import "TransmissionGraphView.h"
+
 
 #define kOutputBus 0
 #define kInputBus 1
@@ -38,6 +40,7 @@
     UILabel *freqlabel1;
     UILabel *freqlabel2;
     GraphView *graph;
+    TransmissionGraphView *tgraph;
     NSTimer *transmitTimer;
     
     UILabel *messageLabel;

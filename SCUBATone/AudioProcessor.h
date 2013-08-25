@@ -33,6 +33,13 @@
     float freq2;
     NSArray *frequency_x;
     NSArray *frequency_y;
+    float *data;
+    
+    int countx;
+    int county;
+    int delay;
+    float lastx;
+    float lasty;
 }
 
 @property (readonly) AudioBuffer audioBuffer;
@@ -52,6 +59,7 @@
 -(void)setFrequencies:(NSArray*)frequencies_x:(NSArray*)frequencies_y;
 -(float)getfreq1;
 -(float)getfreq2;
+-(float*) getData;
 
 // error managment
 -(void)hasError:(int)statusCode:(char*)file:(int)line;
