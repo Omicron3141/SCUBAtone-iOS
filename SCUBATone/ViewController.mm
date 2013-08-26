@@ -283,6 +283,8 @@ numberOfRowsInComponent:(NSInteger)component
         
         transmitTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(transmitendoftimer) userInfo:nil repeats:NO];
         
+        [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(resetThetaValues) userInfo:nil repeats:YES];
+        
         
         
         
@@ -425,6 +427,12 @@ numberOfRowsInComponent:(NSInteger)component
         [tgraph setData:[audioProcessor getData]];
 
     }
+}
+
+-(void) resetThetaValues{
+    
+    theta1 = 0;
+    theta2 = 0;
 }
 
 
