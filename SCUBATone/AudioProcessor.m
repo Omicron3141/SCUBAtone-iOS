@@ -297,31 +297,49 @@ static OSStatus playbackCallback(void *inRefCon,
         convertedSampleBuffer[i] = (float)editBuffer[i] / 32768.0f;
     }
     
+    float lowestfreq = 0.0f;
+    float highestfreq = 4000.0f;
+    data = [self FFTConvert: convertedSampleBuffer:lowestfreq:highestfreq:numFrames:SAMPLE_RATE];
     
-    float minimummagnitude = 0.003f;
+    int freqchange = (int)(highestfreq-lowestfreq);
+    if (smoothedData == NULL) {
+        smoothedData = [NSMutableArray array];
+        for (int z = 0; z<=freqchange; z++) {
+            smoothedData[z] = [NSNumber numberWithFloat:0.0f];
+        }
+    }
+    for (int j = 0; j<=freqchange; j++) {
+        smoothedData[j] = [NSNumber numberWithFloat:[smoothedData[j] floatValue]*0.8f + 0.2f*[data[j] floatValue]];
+    }
+    
+    float minimummagnitude = 3.0f;
     float highestx = 0;
     float highestxmagnitude = 0;
     for (int x = 0; x<frequency_x.count; x++) {
         float targetfreq = [frequency_x[x] floatValue];
-        float magnitude = goertzel_mag(numFrames, targetfreq, SAMPLE_RATE, convertedSampleBuffer);
+        int index = (int)targetfreq-lowestfreq;
+        float magnitude = [smoothedData[index] floatValue];
         if(magnitude > highestxmagnitude && magnitude > minimummagnitude){
             highestx = targetfreq;
             highestxmagnitude = magnitude;
         }
         
     }
-    
     float highesty = 0;
     float highestymagnitude = 0;
     for (int y = 0; y<frequency_y.count; y++) {
         float targetfreq = [frequency_y[y] floatValue];
-        float magnitude = goertzel_mag(numFrames, targetfreq, SAMPLE_RATE, convertedSampleBuffer);
+        int index = (int)targetfreq-lowestfreq;
+        float magnitude = [smoothedData[index] floatValue];
         if(magnitude > highestymagnitude && magnitude > minimummagnitude){
             highesty = targetfreq;
             highestymagnitude = magnitude;
         }
         
     }
+    
+    NSLog(@"%f", highesty);
+
 
     //delay check for x
     
@@ -348,7 +366,6 @@ static OSStatus playbackCallback(void *inRefCon,
         lasty = highesty;
     }
 
-    data = convertedSampleBuffer;
     
     
     
@@ -405,12 +422,22 @@ float goertzel_mag(int numSamples,int TARGET_FREQUENCY,int SAMPLING_RATE, float*
     real = (q1 - q2 * cosine) / scalingFactor;
     imag = (q2 * sine) / scalingFactor;
     
-    magnitude = sqrtf(real*real + imag*imag);
+    magnitude = sqrtf(real*real + imag*imag)*1000;
     return magnitude;
 }
 
--(float*) getData{
+-(NSMutableArray*) getData{
     return data;
+}
+
+
+-(NSMutableArray*) FFTConvert:(float*)buffer:(float)startfreq:(float)endfreq:(int)numSamples:(int)samplingRate{
+    NSMutableArray *fftresult = [NSMutableArray array];
+    for (float i = startfreq; i<=endfreq; i++) {
+        [fftresult addObject:[NSNumber numberWithFloat:goertzel_mag(numSamples, i, samplingRate, buffer)]];
+    }
+    return fftresult;
+    
 }
 
 

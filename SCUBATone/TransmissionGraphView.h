@@ -11,7 +11,9 @@
 @interface TransmissionGraphView : UIView
 
 {
-    float *data;
+    NSMutableArray *data;
+    NSArray *freq_x;
+    NSArray *freq_y;
     
 }
 -(id) initWithFrame:(CGRect)frame;

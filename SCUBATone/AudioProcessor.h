@@ -33,7 +33,9 @@
     float freq2;
     NSArray *frequency_x;
     NSArray *frequency_y;
-    float *data;
+    NSMutableArray *smoothedData;
+    NSMutableArray *data;
+
     
     int countx;
     int county;
@@ -63,5 +65,8 @@
 
 // error managment
 -(void)hasError:(int)statusCode:(char*)file:(int)line;
+
+//fft
+-(NSMutableArray*) FFTConvert: (float*) buffer: (float) startfreq: (float) endfreq: (int) numSamples:(int) samplingRate;
 
 @end

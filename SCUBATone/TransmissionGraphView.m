@@ -22,7 +22,7 @@
     return self;
 }
 
--(void) setData: (float*) d{
+-(void) setData: (NSMutableArray*) d{
     data = d;
 }
 
@@ -37,10 +37,22 @@
         CGContextRef context = UIGraphicsGetCurrentContext();
         //CGContextMoveToPoint(context, 0, 100);
         CGContextBeginPath(context);
-        for (int i = 0; i < 6000; i+=10) {
+        for (int i = 0; i < 4; i++) {
+            NSMutableArray *newdata = [NSMutableArray array];
+            for (int j = 0; j < data.count; j+=1) {
+                float d = [data[j] floatValue];
+                if (j>60) {
+                    d+=([data[j-30] floatValue]-[data[j-60] floatValue])/20;
+
+                }
+               [newdata addObject:[NSNumber numberWithFloat:d]];
+            }
+            data = newdata;
+        }
+        for (int i = 0; i < data.count; i+=10) {
             CGContextMoveToPoint(context, newpos.x, newpos.y);
-            float d = data[i];
-            newpos = CGPointMake(i/10, 80-(100.0f*d));
+            float d = [data[i] floatValue];
+            newpos = CGPointMake(i/10+100, 80-(0.5f*d));
             CGContextAddLineToPoint(context, newpos.x, newpos.y);
             
         }
