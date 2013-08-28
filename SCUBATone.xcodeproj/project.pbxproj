@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8123678D17CE9BB500BE8FE2 /* reef.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8123678C17CE9BB500BE8FE2 /* reef.jpg */; };
 		8151F18A17ADC48F0027520F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F18917ADC48F0027520F /* UIKit.framework */; };
 		8151F18C17ADC48F0027520F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F18B17ADC48F0027520F /* Foundation.framework */; };
 		8151F18E17ADC48F0027520F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F18D17ADC48F0027520F /* CoreGraphics.framework */; };
@@ -34,7 +35,6 @@
 		8195AD6E17C2CA880088B644 /* TransmissionGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195AD6D17C2CA880088B644 /* TransmissionGraphView.m */; };
 		81B8F0CD17BE88C5003BA8F7 /* ChangeMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8F0CC17BE88C5003BA8F7 /* ChangeMessageView.m */; };
 		81B8F0ED17BEA5DE003BA8F7 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B8F0EC17BEA5DE003BA8F7 /* CoreFoundation.framework */; };
-		9E492B7317CDB56C00C70452 /* reef.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E492B7217CDB56C00C70452 /* reef.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8123678C17CE9BB500BE8FE2 /* reef.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = reef.jpg; sourceTree = "<group>"; };
 		8151F18617ADC48F0027520F /* SCUBATone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCUBATone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8151F18917ADC48F0027520F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8151F18B17ADC48F0027520F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -83,7 +84,6 @@
 		81B8F0CB17BE88C5003BA8F7 /* ChangeMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeMessageView.h; sourceTree = "<group>"; };
 		81B8F0CC17BE88C5003BA8F7 /* ChangeMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeMessageView.m; sourceTree = "<group>"; };
 		81B8F0EC17BEA5DE003BA8F7 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		9E492B7217CDB56C00C70452 /* reef.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = reef.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,12 +174,12 @@
 		8151F19017ADC48F0027520F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8123678C17CE9BB500BE8FE2 /* reef.jpg */,
 				8151F19F17ADC48F0027520F /* Default-568h@2x.png */,
 				8151F19B17ADC48F0027520F /* Default.png */,
 				8151F19D17ADC48F0027520F /* Default@2x.png */,
 				8151F19217ADC48F0027520F /* InfoPlist.strings */,
 				8151F19517ADC48F0027520F /* main.m */,
-				9E492B7217CDB56C00C70452 /* reef.jpg */,
 				8151F19117ADC48F0027520F /* SCUBATone-Info.plist */,
 				8151F19717ADC48F0027520F /* SCUBATone-Prefix.pch */,
 			);
@@ -281,7 +281,7 @@
 				8151F19E17ADC48F0027520F /* Default@2x.png in Resources */,
 				8151F1A017ADC48F0027520F /* Default-568h@2x.png in Resources */,
 				8151F1A317ADC48F0027520F /* MainStoryboard.storyboard in Resources */,
-				9E492B7317CDB56C00C70452 /* reef.jpg in Resources */,
+				8123678D17CE9BB500BE8FE2 /* reef.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
