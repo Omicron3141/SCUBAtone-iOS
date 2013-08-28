@@ -361,7 +361,7 @@ static OSStatus playbackCallback(void *inRefCon,
     //}
     
 	// copy incoming audio data to the audio buffer
-	memcpy(audioBuffer.mData, audioBufferList->mBuffers[0].mData, audioBufferList->mBuffers[0].mDataByteSize);
+	//memcpy(audioBuffer.mData, audioBufferList->mBuffers[0].mData, audioBufferList->mBuffers[0].mDataByteSize);
 }
 
 #pragma mark Error handling
