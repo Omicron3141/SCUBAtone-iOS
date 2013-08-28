@@ -348,10 +348,13 @@ static OSStatus playbackCallback(void *inRefCon,
         lasty = highesty;
     }
 
+    if (data)
+    {
+        free(data);
+    }
+
     data = convertedSampleBuffer;
-    
-    
-    
+
     // loop over every packet
     //for (int nb = 0; nb < (audioBufferList->mBuffers[0].mDataByteSize / 2); nb++) {
 
