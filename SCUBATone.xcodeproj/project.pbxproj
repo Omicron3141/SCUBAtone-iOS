@@ -26,7 +26,6 @@
 		8151F1DD17ADFE6E0027520F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F1DC17ADFE6E0027520F /* Accelerate.framework */; };
 		8151F1DF17ADFE720027520F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F1DE17ADFE720027520F /* QuartzCore.framework */; };
 		8151F1E117ADFE830027520F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F1E017ADFE830027520F /* OpenGLES.framework */; };
-		8151F21017AEB61F0027520F /* reef.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8151F20F17AEB61F0027520F /* reef.jpg */; };
 		8151F21D17AED4EC0027520F /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F21C17AED4EC0027520F /* GraphView.m */; };
 		8195AD1117C14E540088B644 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8195AD0F17C14E540088B644 /* ViewController.mm */; };
 		8195AD1417C169730088B644 /* AudioProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195AD1317C169730088B644 /* AudioProcessor.m */; };
@@ -35,6 +34,7 @@
 		8195AD6E17C2CA880088B644 /* TransmissionGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195AD6D17C2CA880088B644 /* TransmissionGraphView.m */; };
 		81B8F0CD17BE88C5003BA8F7 /* ChangeMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8F0CC17BE88C5003BA8F7 /* ChangeMessageView.m */; };
 		81B8F0ED17BEA5DE003BA8F7 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B8F0EC17BEA5DE003BA8F7 /* CoreFoundation.framework */; };
+		9E492B7317CDB56C00C70452 /* reef.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E492B7217CDB56C00C70452 /* reef.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +72,6 @@
 		8151F1DC17ADFE6E0027520F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		8151F1DE17ADFE720027520F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8151F1E017ADFE830027520F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		8151F20F17AEB61F0027520F /* reef.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = reef.jpg; path = ../../../Documents/reef.jpg; sourceTree = "<group>"; };
 		8151F21B17AED4EC0027520F /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		8151F21C17AED4EC0027520F /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 		8195AD0F17C14E540088B644 /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
@@ -84,6 +83,7 @@
 		81B8F0CB17BE88C5003BA8F7 /* ChangeMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeMessageView.h; sourceTree = "<group>"; };
 		81B8F0CC17BE88C5003BA8F7 /* ChangeMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeMessageView.m; sourceTree = "<group>"; };
 		81B8F0EC17BEA5DE003BA8F7 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		9E492B7217CDB56C00C70452 /* reef.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = reef.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,6 @@
 		8151F17D17ADC48F0027520F = {
 			isa = PBXGroup;
 			children = (
-				81B8F0EC17BEA5DE003BA8F7 /* CoreFoundation.framework */,
 				8151F18F17ADC48F0027520F /* SCUBATone */,
 				8151F1B317ADC48F0027520F /* SCUBAToneTests */,
 				8151F18817ADC48F0027520F /* Frameworks */,
@@ -138,14 +137,15 @@
 		8151F18817ADC48F0027520F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8151F1E017ADFE830027520F /* OpenGLES.framework */,
-				8151F1DE17ADFE720027520F /* QuartzCore.framework */,
 				8151F1DC17ADFE6E0027520F /* Accelerate.framework */,
 				8151F1C717ADE10F0027520F /* AudioToolbox.framework */,
-				8151F18917ADC48F0027520F /* UIKit.framework */,
-				8151F18B17ADC48F0027520F /* Foundation.framework */,
+				81B8F0EC17BEA5DE003BA8F7 /* CoreFoundation.framework */,
 				8151F18D17ADC48F0027520F /* CoreGraphics.framework */,
+				8151F18B17ADC48F0027520F /* Foundation.framework */,
+				8151F1E017ADFE830027520F /* OpenGLES.framework */,
+				8151F1DE17ADFE720027520F /* QuartzCore.framework */,
 				8151F1AD17ADC48F0027520F /* SenTestingKit.framework */,
+				8151F18917ADC48F0027520F /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -153,19 +153,19 @@
 		8151F18F17ADC48F0027520F /* SCUBATone */ = {
 			isa = PBXGroup;
 			children = (
+				8151F19817ADC48F0027520F /* AppDelegate.h */,
+				8151F19917ADC48F0027520F /* AppDelegate.m */,
 				8195AD1217C169730088B644 /* AudioProcessor.h */,
 				8195AD1317C169730088B644 /* AudioProcessor.m */,
-				8195AD0F17C14E540088B644 /* ViewController.mm */,
-				8195AD1017C14E540088B644 /* ViewController.h */,
-				8151F19917ADC48F0027520F /* AppDelegate.m */,
-				8151F1A117ADC48F0027520F /* MainStoryboard.storyboard */,
-				8151F19817ADC48F0027520F /* AppDelegate.h */,
 				81B8F0CB17BE88C5003BA8F7 /* ChangeMessageView.h */,
 				81B8F0CC17BE88C5003BA8F7 /* ChangeMessageView.m */,
 				8151F21B17AED4EC0027520F /* GraphView.h */,
 				8151F21C17AED4EC0027520F /* GraphView.m */,
+				8151F1A117ADC48F0027520F /* MainStoryboard.storyboard */,
 				8195AD6C17C2CA880088B644 /* TransmissionGraphView.h */,
 				8195AD6D17C2CA880088B644 /* TransmissionGraphView.m */,
+				8195AD1017C14E540088B644 /* ViewController.h */,
+				8195AD0F17C14E540088B644 /* ViewController.mm */,
 				8151F19017ADC48F0027520F /* Supporting Files */,
 			);
 			path = SCUBATone;
@@ -174,14 +174,14 @@
 		8151F19017ADC48F0027520F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8151F20F17AEB61F0027520F /* reef.jpg */,
-				8151F19117ADC48F0027520F /* SCUBATone-Info.plist */,
-				8151F19217ADC48F0027520F /* InfoPlist.strings */,
-				8151F19517ADC48F0027520F /* main.m */,
-				8151F19717ADC48F0027520F /* SCUBATone-Prefix.pch */,
+				8151F19F17ADC48F0027520F /* Default-568h@2x.png */,
 				8151F19B17ADC48F0027520F /* Default.png */,
 				8151F19D17ADC48F0027520F /* Default@2x.png */,
-				8151F19F17ADC48F0027520F /* Default-568h@2x.png */,
+				8151F19217ADC48F0027520F /* InfoPlist.strings */,
+				8151F19517ADC48F0027520F /* main.m */,
+				9E492B7217CDB56C00C70452 /* reef.jpg */,
+				8151F19117ADC48F0027520F /* SCUBATone-Info.plist */,
+				8151F19717ADC48F0027520F /* SCUBATone-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -281,7 +281,7 @@
 				8151F19E17ADC48F0027520F /* Default@2x.png in Resources */,
 				8151F1A017ADC48F0027520F /* Default-568h@2x.png in Resources */,
 				8151F1A317ADC48F0027520F /* MainStoryboard.storyboard in Resources */,
-				8151F21017AEB61F0027520F /* reef.jpg in Resources */,
+				9E492B7317CDB56C00C70452 /* reef.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
